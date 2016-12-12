@@ -9,7 +9,7 @@
       <th>Customer</th>
       <th>Order date</th>
       <th>Order day</th>
-      <th colspan="3"></th>
+      <th colspan="3">Manage Order</th>
     </tr>
   </thead>
 
@@ -23,7 +23,7 @@
         <td><%= order.day_order %></td>
         <td><%= link_to order do%><i class="fa fa-eye"></i><%end%></td>
         <td><%= link_to edit_order_path(order) do%><i class="fa fa-pencil"></i><%end%></td>
-        <td><%= link_to order, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-remove"></i><%end%></td>
+        <td><%= link_to order, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_customer' do %><i class="fa fa-remove"></i><%end%></td>
       </tr>
     <% end %>
   </tbody>

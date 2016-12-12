@@ -58,6 +58,7 @@ class ChefsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to chefs_url, notice: 'Chef was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { render layout: false }
     end
   end
 

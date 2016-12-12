@@ -47,7 +47,7 @@
         <tbody>
           <% @orders.each do |order| %>
           <tr>
-            <td><%= order.customer.name%></td>
+            <td><%= order.customer.name%>(<%= order.customer.company%>)</td>
             <td><%= order.item.name%></td>
             <td><%= order.quantity%></td>
             <td><%= order.date_format%> (<%= order.day_order %>)</td>

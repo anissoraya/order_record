@@ -5,7 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Phone</th>
-      <th colspan="3"></th>
+      <th colspan="3">Manage Chef</th>
     </tr>
   </thead>
 
@@ -16,7 +16,7 @@
         <td><%= chef.phone %></td>
         <td><%= link_to chef do%><i class="fa fa-eye"></i><%end%></td>
         <td><%= link_to edit_chef_path(chef) do%><i class="fa fa-pencil"></i><%end%></td>
-        <td><%= link_to chef, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="fa fa-remove"></i><%end%></td>
+        <td><%= link_to chef, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_chef' do%><i class="fa fa-remove"></i><%end%></td>
       </tr>
     <% end %>
   </tbody>

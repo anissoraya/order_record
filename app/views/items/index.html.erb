@@ -17,7 +17,7 @@
         <td><%= item.price %></td>
         <td><%= link_to item do%><i class="fa fa-eye"></i><%end%></td>
         <td><%= link_to edit_item_path(item) do%><i class="fa fa-pencil"></i><%end%></td>
-        <td><%= link_to item, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="fa fa-remove"></i><%end%></td>
+        <td><%= link_to item, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_item' do%><i class="fa fa-remove"></i><%end%></td>
       </tr>
     <% end %>
   </tbody>

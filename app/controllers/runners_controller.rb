@@ -59,6 +59,7 @@ class RunnersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to runners_url, notice: 'Runner was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { render layout: false }
     end
   end
 

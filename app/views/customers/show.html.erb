@@ -1,22 +1,51 @@
-<p>
-  <strong>Name:</strong>
-  <%= @customer.name %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @customer.company %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @customer.phone %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @customer.address %>
-</p>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to customers_path, class:'btn btn-success' do%><i class="fa fa-arrow-left"></i> Back<%end%>
+<br><br>
+<div class="panel panel-default">
+    <table class="table">
+  <tr>
+    <td><strong>Name:</strong></td>
+    <td><%= @customer.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Company:</strong></td>
+    <td><%= @customer.company %></td>
+  </tr>
+  <tr>
+    <td><strong>Phone No:</strong></td>
+    <td><%= @customer.phone %></td>
+  </tr>
+  <tr>
+    <td><strong>Address:</strong></td>
+    <td><%= @customer.address %></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align:right"><%= link_to edit_customer_path(@customer), class: 'btn btn-warning' do %><i class="fa fa-pencil"></i> Edit<%end%></td>
+  </tr>
+  </table>
+</div>
+<legend></legend>
+<h4> <%= @customer.name%>'s orders</h4>
+<div class="panel panel-default">
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Order Date</th>
+        <th>Item Name</th>
+        <th>Quantity Order</th>
+        <th colspan="3">Manage Order</th>
+      </tr>
+    </thead>
+      <% @customer.orders.each do |customer_order| %>
+        <tr>
+          <td><%= customer_order.date_format %></td>
+          <td><%= customer_order.item.name %></td>
+          <td><%= customer_order.quantity %></td>
+          <td><%= link_to customer_order do%><i class="fa fa-eye"></i><%end%></td>
+          <td><%= link_to edit_order_path(customer_order)  do%><i class="fa fa-pencil"></i><%end%></td>
+          <td><%= link_to customer_order, method: :delete, data: {confirm: 'Are you sure to delete?'}, :remote => true, :class => 'delete_order' do%><i class="fa fa-remove"></i><%end%></td>
+        </tr>
+      <%end%>
+  </table>
+  </div>
+</div>

@@ -1,29 +1,49 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Item:</strong>
-  <%= @order.item_id %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @order.quantity %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @order.customer_id %>
-</p>
-
-<p>
-  <strong>Order date:</strong>
-  <%= @order.order_date %>
-</p>
-
-<p>
-  <strong>Order day:</strong>
-  <%= @order.order_day %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to orders_path, class: 'btn btn-success' do%><i class="fa fa-arrow-left"></i> Back<%end%><br><br>
+<div class="panel panel-default">
+    <table class="table">
+  <tr>
+    <td><strong>Item:</strong></td>
+    <td><%= @order.item.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Quantity:</strong></td>
+    <td><%= @order.quantity %></td>
+  </tr>
+  <tr>
+    <td><strong>Customer:</strong></td>
+    <td><%= @order.customer.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Order_Date:</strong></td>
+    <td><%= @order.date_format %> (<%= @order.day_order %>)</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align:right"><%= link_to edit_order_path(@order), class: 'btn btn-warning' do %><i class="fa fa-pencil"></i> Edit<%end%></td>
+  </tr>
+  </table>
+</div>
+<br>
+<legend></legend>
+<h4>Assigning Runner</h4>
+<div class="panel panel-default">
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Packaging No.</th>
+      <th>Runner Name</th>
+      <th>Packaging Quantity</th>
+    </tr>
+  </thead>
+    <% @pack = 0 %>
+    <% @order.runner_orders.each do |runner_order| %>
+      <tr>
+        <td><%= @pack = @pack + 1 %></td>
+        <td><%= runner_order.runner.name %></td>
+        <td><%= runner_order.packaging_quantity %></td>
+      </tr>
+    <%end%>
+</table>
+</div>
+</div>
+<center><%= link_to 'Assign Runner', new_order_runner_order_path(@order), class: 'btn btn-info' %></center>

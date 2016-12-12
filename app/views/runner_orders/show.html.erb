@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @runner_order.order_id %>
+</p>
+
+<p>
+  <strong>Runner:</strong>
+  <%= @runner_order.runner_id %>
+</p>
+
+<p>
+  <strong>Packaging quantity:</strong>
+  <%= @runner_order.packaging_quantity %>
+</p>
+
+<%= link_to 'Edit', edit_runner_order_path(@runner_order) %> |
+<%= link_to 'Back', runner_orders_path %>

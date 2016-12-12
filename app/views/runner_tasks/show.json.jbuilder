@@ -1,0 +1,1 @@
+json.partial! "runner_tasks/runner_task", runner_task: @runner_task

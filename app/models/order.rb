@@ -2,6 +2,8 @@ class Order < ApplicationRecord
 
   belongs_to :customer
   belongs_to :item
+  has_many :runner_tasks
+  has_many :runner_orders, dependent: :destroy
 
   def day_order
     if !order_date.nil?
@@ -18,4 +20,5 @@ class Order < ApplicationRecord
   def week
     self.order_date.strftime('%w')
   end
+
 end

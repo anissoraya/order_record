@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @runnerorders = RunnerOrder.all.where(order_id: @order)
   end
 
   # GET /orders/new

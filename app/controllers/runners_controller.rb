@@ -10,6 +10,7 @@ class RunnersController < ApplicationController
   # GET /runners/1
   # GET /runners/1.json
   def show
+    @runnertasks = RunnerTask.all.where(runner_id: @runner)
   end
 
   # GET /runners/new

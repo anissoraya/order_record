@@ -1,0 +1,1 @@
+json.array! @runner_tasks, partial: 'runner_tasks/runner_task', as: :runner_task

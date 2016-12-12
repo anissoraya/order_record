@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Package quantity:</strong>
+  <%= @runner_task.package_quantity %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @runner_task.order_id %>
+</p>
+
+<p>
+  <strong>Runner:</strong>
+  <%= @runner_task.runner_id %>
+</p>
+
+<%= link_to 'Edit', edit_runner_task_path(@runner_task) %> |
+<%= link_to 'Back', runner_tasks_path %>

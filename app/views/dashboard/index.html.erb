@@ -1,0 +1,62 @@
+<h1>Dashboard</h1><br>
+    <div class="row placeholders">
+      <div class="col-xs-6 col-sm-3">
+        <%= link_to customers_path do %>
+        <img src="<%= image_url('Couple-icon.png')%>" width="200" height="200" class="img-fluid" alt="Generic placeholder thumbnail">
+        <h4>Customers</h4>
+        <span class="text-muted"><br></span>
+        <%end%>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <%= link_to orders_path do %>
+        <img src="<%= image_url('order-icon-21627.png')%>" width="200" height="200" class="img-fluid"  alt="Generic placeholder thumbnail">
+        <h4>Orders</h4>
+        <span class="text-muted"><br></span>
+        <%end%>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <%= link_to items_path do %>
+        <img src="<%= image_url('c38752a4.png')%>" width="200" height="200" class="img-fluid" alt="Generic placeholder thumbnail">
+        <h4>Item</h4>
+        <span class="text-muted"><br></span>
+        <%end%>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <%= link_to runners_path do %>
+        <img src="<%= image_url('delivery-icon-7977.png')%>" width="200" height="200" class="img-fluid" alt="Generic placeholder thumbnail">
+        <h4>Runners</h4>
+        <span class="text-muted"><br></span>
+        <%end%>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading"><h2>Weekly Order</h2></div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Order Date</th>
+            <th colspan="2">Manage Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.customer.name%></td>
+            <td><%= order.item.name%></td>
+            <td><%= order.quantity%></td>
+            <td><%= order.date_format%> (<%= order.day_order %>)</td>
+            <td><%= link_to order_path(order) do%><i class="fa fa-eye"></i><%end%></td>
+            <td><%= link_to edit_order_path(order) do%><i class="fa fa-pencil"></i><%end%></td>
+            <td><%= link_to order, method: :delete, data: {confirm: 'Are You Sure To Delete?'} do%><i class="fa fa-remove"></i><%end%></td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>

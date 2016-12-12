@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= root_path %>">Amin Nasi Kapit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="<%= root_path %>">Dashboard</a></li>
+          <li><a href="<%= orders_path%>">All Orders</a></li>
+          <li><a href="<%= customers_path%>">Customers</a></li>
+          <li><a href="<%= items_path%>">Items</a></li>
+          <li><a href="<%= runners_path%>">Runners</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <!--
+          <form class="float-xs-right">
+          <input type="text" class="form-control" placeholder="Search...">
+          </form>
+      -->
+    </div>
+  </nav>
+
+    <div class="container-fluid main">
+      <% if notice.present? %>
+      <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong><span id="notice"><%= notice %></span></strong>
+      </div>
+        <%elsif alert.present? %>
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong><span id="notice"><%= notice %></span></strong>
+        </div>
+      <%end%>
+
+      <div class="row">
+          <div class="col-sm-12 main">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

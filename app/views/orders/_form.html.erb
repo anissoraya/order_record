@@ -1,0 +1,78 @@
+<%= form_for(order) do |f| %>
+  <% if order.errors.any? %>
+  <div class="alert alert-danger alert-dismissable" style="width:74%;">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-remove"></i></a>
+    <div id="error_explanation">
+      <h5><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h5>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    </div>
+  <% end %>
+    <div class="row form-group">
+        <div class="col-sm-1">
+        <%= f.label :item_id %>
+        </div>
+      <div class="col-sm-8">
+        <%= f.collection_select :item_id, Item.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+      </div>
+    </div>
+
+      <div class="row form-group">
+          <div class="col-sm-1">
+          <%= f.label :quantity %>
+          </div>
+        <div class="col-sm-8">
+          <%= f.number_field :quantity, class:'form-control', required: true %>
+        </div>
+      </div>
+
+        <div class="row form-group">
+            <div class="col-sm-1">
+            <%= f.label :customer_id %>
+            </div>
+          <div class="col-sm-8">
+            <%= f.collection_select :customer_id, Customer.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+          </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-sm-1">
+            <%= f.label :order_date %>
+            </div>
+          <div class="col-sm-8">
+            <%= f.text_field :order_date, class:'form-control', id: 'datetimepicker12', required: true %>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker12').datetimepicker({
+                        format: 'YYYY-MM-DD HH:mm',
+                        defaultDate: "<%= order.order_date %>"
+
+                    });
+                });
+            </script>
+          </div>
+        </div>
+<!--
+        <div class="row form-group">
+            <div class="col-sm-1">
+            <%= f.label 'Hari' %>
+            </div>
+          <div class="col-sm-8">
+            <%= f.select :order_day, options_for_select(['Ahad','Isnin','Selasa','Rabu', 'Khamis', 'Jumaat', 'Sabtu'], 'Ahad'),{:include_blank => false}, {class:'form-control'} %>
+          </div>
+        </div>
+-->
+
+        <div class="actions">
+          <div class="row">
+          <div class="col-sm-1"></div><div class="col-sm-8" style="text-align:right"><%= f.submit 'Save', class: 'btn btn-success' %></div>
+          </div>
+        </div>
+
+
+<% end %>

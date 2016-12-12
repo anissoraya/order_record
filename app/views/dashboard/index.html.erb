@@ -1,4 +1,4 @@
-<h1>Dashboard</h1><br>
+<h3>Dashboard</h3><br>
     <div class="row placeholders">
       <div class="col-xs-6 col-sm-3">
         <%= link_to customers_path do %>
@@ -17,7 +17,7 @@
       <div class="col-xs-6 col-sm-3">
         <%= link_to items_path do %>
         <img src="<%= image_url('c38752a4.png')%>" width="200" height="200" class="img-fluid" alt="Generic placeholder thumbnail">
-        <h4>Item</h4>
+        <h4>Items</h4>
         <span class="text-muted"><br></span>
         <%end%>
       </div>
@@ -27,6 +27,17 @@
         <h4>Runners</h4>
         <span class="text-muted"><br></span>
         <%end%>
+      </div>
+      <div class="row">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-6" style="text-align:center">
+        <%= link_to chefs_path do %>
+        <img src="<%= image_url('chef.png')%>" width="200" height="200" class="img-fluid" alt="Generic placeholder thumbnail">
+        <h4>Chefs</h4>
+        <span class="text-muted"><br></span>
+        <%end%>
+      </div>
+      <div class="col-xs-3"></div>
       </div>
     </div>
 

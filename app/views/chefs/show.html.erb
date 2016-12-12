@@ -1,12 +1,43 @@
-<p>
-  <strong>Name:</strong>
-  <%= @chef.name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @chef.phone %>
-</p>
-
-<%= link_to 'Edit', edit_chef_path(@chef) %> |
-<%= link_to 'Back', chefs_path %>
+<%= link_to chefs_path, class: 'btn btn-success' do%><i class="fa fa-arrow-left"></i> Back<%end%><br><br>
+<div class="panel panel-default">
+    <table class="table">
+  <tr>
+    <td><strong>Name:</strong></td>
+    <td><%= @chef.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Phone:</strong></td>
+    <td><%= @chef.phone %></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align:right"><%= link_to edit_chef_path(@chef), class:'btn btn-warning' do%><i class="fa fa-pencil"></i> Edit<%end%></td>
+  </tr>
+  </table>
+</div>
+<br>
+<legend></legend>
+<h4> Chef's orders assigned</h4>
+<div class="panel panel-default">
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Order Date</th>
+        <th>Item Name</th>
+        <th>Quantity Order</th>
+        <th colspan="3">Manage Order</th>
+      </tr>
+    </thead>
+      <% @chef.orders.order(order_date: :desc).each do |chef_order| %>
+        <tr>
+          <td><%= chef_order.date_format %></td>
+          <td><%= chef_order.item.name %></td>
+          <td><%= chef_order.quantity %></td>
+          <td><%= link_to chef_order do%><i class="fa fa-eye"></i><%end%></td>
+          <td><%= link_to edit_order_path(chef_order)  do%><i class="fa fa-pencil"></i><%end%></td>
+          <td><%= link_to chef_order, method: :delete, data: {confirm: 'Are you sure to delete?'}, :remote => true, :class => 'delete_order' do%><i class="fa fa-remove"></i><%end%></td>
+        </tr>
+      <%end%>
+  </table>
+  </div>
+</div>

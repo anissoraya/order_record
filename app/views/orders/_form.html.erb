@@ -22,6 +22,32 @@
       </div>
     </div>
 
+    <div class="row form-group">
+        <div class="col-sm-1">
+        <%= f.label :customer_id %>
+        </div>
+      <div class="col-sm-8">
+        <%= f.collection_select :customer_id, Customer.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-1">
+        <%= f.label 'Runner In Charge' %>
+        </div>
+      <div class="col-sm-8">
+        <%= f.collection_select :runner_id, Runner.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+      </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-1">
+        <%= f.label 'Chef In Charge' %>
+        </div>
+      <div class="col-sm-8">
+        <%= f.collection_select :chef_id, Chef.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+      </div>
+    </div>
+
       <div class="row form-group">
           <div class="col-sm-1">
           <%= f.label :quantity %>
@@ -31,14 +57,6 @@
         </div>
       </div>
 
-        <div class="row form-group">
-            <div class="col-sm-1">
-            <%= f.label :customer_id %>
-            </div>
-          <div class="col-sm-8">
-            <%= f.collection_select :customer_id, Customer.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
-          </div>
-        </div>
 
         <div class="row form-group">
             <div class="col-sm-1">

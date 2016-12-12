@@ -36,7 +36,7 @@
         <th colspan="3">Manage Order</th>
       </tr>
     </thead>
-      <% @customer.orders.each do |customer_order| %>
+      <% @customer.orders.order(order_date: :desc).each do |customer_order| %>
         <tr>
           <td><%= customer_order.date_format %></td>
           <td><%= customer_order.item.name %></td>

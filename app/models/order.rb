@@ -1,7 +1,9 @@
 class Order < ApplicationRecord
 
   belongs_to :customer
+  belongs_to :runner
   belongs_to :item
+  belongs_to :chef
   has_many :runner_tasks
   has_many :runner_orders, dependent: :destroy
 

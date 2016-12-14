@@ -1,0 +1,5 @@
+//$("#search").onkeyup(function(){
+//    $(this).parent('div').parent('form').trigger('submit.rails');
+//});
+
+$("#orders").html("<%= escape_javascript(render('orders')) %>").serialize();

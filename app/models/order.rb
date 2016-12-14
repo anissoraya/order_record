@@ -25,9 +25,9 @@ class Order < ApplicationRecord
 
   def self.search(search)
     if search
-      includes(:customer).where('customers.name LIKE ?', "%#{search}%").references(:customer)
+      includes(:customer).where('customers.name LIKE ? OR customers.company LIKE ?', "%#{search}%","%#{search}%" ).references(:customer)
     else
-      all
+      all.order('order_date DESC').paginate(:page => params[:page], :per_page => 10)
     end
   end
 

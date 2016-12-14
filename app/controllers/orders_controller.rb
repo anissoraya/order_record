@@ -4,11 +4,16 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all.paginate(:page => params[:page], :per_page => 10)
+    @orders = Order.all.order('order_date DESC').paginate(:page => params[:page], :per_page => 10)
     if params[:search]
-      @orders =  Order.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
+      @orders =  Order.search(params[:search]).order('order_date DESC').paginate(:page => params[:page], :per_page => 10)
     else
       @orders = Order.all.order('order_date DESC').paginate(:page => params[:page], :per_page => 10)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

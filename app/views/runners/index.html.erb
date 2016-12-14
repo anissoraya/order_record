@@ -1,5 +1,6 @@
 <h1>Runners</h1>
-<br>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= link_to 'New Runner', new_runner_path, class: 'btn btn-info'%></div>
 <div class="table-responsive">
 <table class="table table-striped">
   <thead>
@@ -25,5 +26,4 @@
 </div>
 <br>
 <center><%= will_paginate @runners, renderer: BootstrapPagination::Rails %></center>
-
-<center><%= link_to 'New Runner', new_runner_path, class: 'btn btn-info'%></center>
+</div>

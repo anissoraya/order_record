@@ -1,5 +1,6 @@
 <h1>Chefs</h1>
-<br>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= link_to 'New Chef', new_chef_path, class: 'btn btn-info' %></div>
 <div class="table-responsive">
 <table class="table table-striped">
   <thead>
@@ -24,5 +25,5 @@
 </table>
 </div>
 <br>
-
-<center><%= link_to 'New Chef', new_chef_path, class: 'btn btn-info' %></center>
+<center><%= will_paginate @chefs, renderer: BootstrapPagination::Rails %></center>
+</div>

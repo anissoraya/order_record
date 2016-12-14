@@ -1,5 +1,6 @@
 <h1>Items</h1>
-<br>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= link_to 'New Item', new_item_path, class: 'btn btn-info' %></div>
 <div class="table-responsive">
 <table class="table table-striped">
   <thead>
@@ -27,5 +28,4 @@
 
 <br>
 <center><%= will_paginate @items, renderer: BootstrapPagination::Rails %></center>
-
-<center><%= link_to 'New Item', new_item_path, class: 'btn btn-info' %></center>
+</div>

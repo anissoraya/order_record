@@ -17,3 +17,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+/*
+$(function() {
+  $("#orders th a, #orders .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#orders_search").keyup(function() {
+    $.get($("#orders_search").attr("action"), $("#orders_search").serialize(), null, "script");
+    return false;
+  });
+});
+*/
+$(document).on("keyup", "#orders_search", function(){
+       $.get($("#orders_search").attr("action"), $("#orders_search").serialize(), null, "script");
+       return false;
+   });

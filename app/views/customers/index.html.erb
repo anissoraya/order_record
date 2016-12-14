@@ -21,7 +21,7 @@
         <td><%= customer.address %></td>
         <td><%= link_to customer do%><i class="fa fa-eye"></i><%end%></td>
         <td><%= link_to edit_customer_path(customer) do%><i class="fa fa-pencil"></i><%end%></td>
-        <td><%= link_to customer, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_order' do%><i class="fa fa-remove"></i><%end%></td>
+        <td><%= link_to customer, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_customer' do%><i class="fa fa-remove"></i><%end%></td>
       </tr>
     <% end %>
   </tbody>

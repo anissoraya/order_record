@@ -23,4 +23,12 @@ class Order < ApplicationRecord
     self.order_date.strftime('%w')
   end
 
+  def self.search(search)
+    if search
+      includes(:customer).where('customers.name LIKE ?', "%#{search}%").references(:customer)
+    else
+      all
+    end
+  end
+
 end

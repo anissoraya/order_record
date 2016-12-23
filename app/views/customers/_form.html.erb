@@ -13,6 +13,15 @@
 
   <div class="row form-group">
       <div class="col-sm-1">
+      <%= f.label 'Upload Profile Picture' %>
+      </div>
+    <div class="col-sm-8">
+      <%= f.file_field :avatar, class: 'file' %>
+    </div>
+  </div>
+
+  <div class="row form-group">
+      <div class="col-sm-1">
       <%= f.label 'Name' %>
       </div>
     <div class="col-sm-8">

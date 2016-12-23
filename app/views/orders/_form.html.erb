@@ -39,15 +39,6 @@
         <%= f.collection_select :runner_id, Runner.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
       </div>
     </div>
-    <div class="row form-group">
-        <div class="col-sm-1">
-        <%= f.label 'Chef In Charge' %>
-        </div>
-      <div class="col-sm-8">
-        <%= f.collection_select :chef_id, Chef.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
-      </div>
-    </div>
-
       <div class="row form-group">
           <div class="col-sm-1">
           <%= f.label :quantity %>

@@ -35,6 +35,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'will_paginate-bootstrap'
+gem 'devise'
 #added gem
 
 

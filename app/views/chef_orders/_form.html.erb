@@ -1,0 +1,62 @@
+
+<%= form_for [@order, @chef_order] do |f| %>
+
+  <% if chef_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chef_order.errors.count, "error") %> prohibited this chef_order from being saved:</h2>
+
+      <ul>
+      <% chef_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label :chef_id %>
+      </div>
+    <div class="col-sm-8">
+      <%= f.collection_select :chef_id, Chef.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+    </div>
+  </div>
+<!--
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label :order_id %>
+      </div>
+    <div class="col-sm-8">
+      <%= f.collection_select :order_id, Order.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+    </div>
+  </div>
+-->
+<!--
+  <div class="row form-group">
+      <div class="col-sm-1">
+        <%= f.label 'Order ID' %>
+      </div>
+
+    <div class="col-sm-8">
+      <%= f.text_field :order_id, class:'form-control', required: true %>
+    </div>
+  </div>
+-->
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label 'Quantity Assign' %>
+      </div>
+    <div class="col-sm-8">
+      <%= f.text_field :amount_cook, class:'form-control', required: true %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <div class="row">
+    <div class="col-sm-1"></div><div class="col-sm-8" style="text-align:right"><%= f.submit 'Save', class: 'btn btn-success' %></div>
+    </div>
+  </div>
+
+
+<% end %>
+</div></div>

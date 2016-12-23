@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-
+  root 'dashboard#home'
+  get 'dashboard/meta'
+  get 'dashboard/index'
+  
+  devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions'}
+  devise_for :admins, {registrations: 'admins/registrations', sessions: 'admins/sessions'}
+  #resources :chef_orders
   resources :runner_orders
-  resources :chefs
-  root 'dashboard#index'
+  resources :chefs do
+    resources :chef_orders
+  end
+
 
   resources :orders do
-    resources :runner_orders
+    resources :chef_orders
   end
   resources :items
   resources :customers

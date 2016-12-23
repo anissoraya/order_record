@@ -1,0 +1,1 @@
+json.partial! "chef_orders/chef_order", chef_order: @chef_order

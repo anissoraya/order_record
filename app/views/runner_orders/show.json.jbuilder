@@ -1,1 +1,0 @@
-json.partial! "runner_orders/runner_order", runner_order: @runner_order

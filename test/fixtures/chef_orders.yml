@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chef_id: 1
+  order_id: 1
+  amount_cook: 1
+
+two:
+  chef_id: 1
+  order_id: 1
+  amount_cook: 1

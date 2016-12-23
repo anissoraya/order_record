@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @runnerorders = RunnerOrder.all.where(order_id: @order)
+    @cheforders = ChefOrder.all.where(order_id: @order)
   end
 
   # GET /orders/new
@@ -81,6 +81,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:item_id, :quantity, :customer_id, :order_date, :order_day, :runner_id, :chef_id)
+      params.require(:order).permit(:name, :item_id, :quantity, :customer_id, :order_date, :order_day, :runner_id)
     end
 end

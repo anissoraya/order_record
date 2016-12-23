@@ -1,0 +1,28 @@
+<h1>Chef Orders</h1>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= link_to 'New Chef Task', new_chef_order_path, class: 'btn btn-info' %></div>
+<div class="table-responsive">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Chef</th>
+      <th>Order</th>
+      <th>Amount cook</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chef_orders.each do |chef_order| %>
+      <tr>
+        <td><%= chef_order.chef_id %></td>
+        <td><%= chef_order.order_id %></td>
+        <td><%= chef_order.amount_cook %></td>
+        <td><%= link_to chef_order do%><i class="fa fa-eye"></i><%end%></td>
+        <td><%= link_to edit_chef_order_path(chef_order) do%><i class="fa fa-pencil"></i><%end%></td>
+        <td><%= link_to chef_order, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_cheforder' do%><i class="fa fa-remove"></i><%end%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

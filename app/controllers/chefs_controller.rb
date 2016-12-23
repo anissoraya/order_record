@@ -28,6 +28,7 @@ class ChefsController < ApplicationController
 
     respond_to do |format|
       if @chef.save
+        current_user.update(meta_id: @chef.id, meta_type: "Chef")
         format.html { redirect_to @chef, notice: 'Chef was successfully created.' }
         format.json { render :show, status: :created, location: @chef }
       else

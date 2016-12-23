@@ -29,6 +29,7 @@ class RunnersController < ApplicationController
 
     respond_to do |format|
       if @runner.save
+        current_user.update(meta_id: @runner.id,meta_type: "Runner")
         format.html { redirect_to @runner, notice: 'Runner was successfully created.' }
         format.json { render :show, status: :created, location: @runner }
       else

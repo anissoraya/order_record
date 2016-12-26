@@ -75,11 +75,11 @@
         <strong><span id="notice"><%= notice %></span></strong>
       </div>
         <%elsif alert.present? %>
-        <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <strong><span id="notice"><%= notice %></span></strong>
+          <strong><span id="alert"><%= alert %></span></strong>
         </div>
       <%end%>
 

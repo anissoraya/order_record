@@ -31,7 +31,25 @@ $(function() {
   });
 });
 */
+
 $(document).on("keyup", "#orders_search", function(){
        $.get($("#orders_search").attr("action"), $("#orders_search").serialize(), null, "script");
        return false;
    });
+
+$(document).on("keyup", "#customers_search", function(){
+          $.get($("#customers_search").attr("action"), $("#customers_search").serialize(), null, "script");
+          return false;
+  });
+$(document).on("keyup", "#runners_search", function(){
+            $.get($("#runners_search").attr("action"), $("#runners_search").serialize(), null, "script");
+            return false;
+  });
+$(document).on("keyup", "#chefs_search", function(){
+              $.get($("#chefs_search").attr("action"), $("#chefs_search").serialize(), null, "script");
+              return false;
+  });
+$(document).on("keyup", "#items_search", function(){
+              $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
+              return false;
+});

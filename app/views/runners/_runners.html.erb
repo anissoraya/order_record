@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><%= link_to 'New Runner', new_runner_path, class: 'btn btn-info'%></div>
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th colspan="3">Manage Runner</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @runners.each do |runner| %>
+      <tr>
+        <td><%= runner.name %></td>
+        <td><%= runner.phone %></td>
+        <td><%= link_to runner do%><i class="fa fa-eye"></i><%end%></td>
+        <td><%= link_to edit_runner_path(runner) do%><i class="fa fa-pencil"></i><%end%></td>
+        <td><%= link_to runner, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_runner' do%><i class="fa fa-remove"></i><%end%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+<center><%= will_paginate @runners, renderer: BootstrapPagination::Rails %></center>
+</div>

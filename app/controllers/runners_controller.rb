@@ -5,6 +5,11 @@ class RunnersController < ApplicationController
   # GET /runners.json
   def index
     @runners = Runner.all.paginate(:page => params[:page], :per_page => 10)
+    if params[:search_runner]
+      @runners =  Runner.search_runner(params[:search_runner]).paginate(:page => params[:page], :per_page => 10)
+    else
+      @runners = Runner.all.paginate(:page => params[:page], :per_page => 10)
+    end
   end
 
   # GET /runners/1

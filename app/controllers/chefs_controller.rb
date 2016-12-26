@@ -5,6 +5,11 @@ class ChefsController < ApplicationController
   # GET /chefs.json
   def index
     @chefs = Chef.all.paginate(:page => params[:page], :per_page => 10)
+    if params[:search_chef]
+      @chefs =  Chef.search_chef(params[:search_chef]).paginate(:page => params[:page], :per_page => 10)
+    else
+      @chefs = Chef.all.paginate(:page => params[:page], :per_page => 10)
+    end
   end
 
   # GET /chefs/1

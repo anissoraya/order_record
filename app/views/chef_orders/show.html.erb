@@ -1,0 +1,19 @@
+<%= link_to order_path(@chef_order.order_id), class: 'btn btn-success' do%><i class="fa fa-arrow-left"></i> Back<%end%><br><br>
+<div class="panel panel-default">
+    <table class="table">
+  <tr>
+    <td><strong>Order Reference:</strong></td>
+    <td><%= @chef_order.order.name %> ( <%= link_to 'View Order', order_path(@chef_order.order.id) %> )</td>
+  </tr>
+  <tr>
+    <td><strong>Chef Name:</strong></td>
+    <td><%= @chef_order.chef.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Quantity Assigned:</strong></td>
+    <td><%= @chef_order.amount_cook %></td>
+  </tr>
+
+  </table>
+</div>
+<br>

@@ -27,3 +27,31 @@
   </table>
 </div>
 <br>
+
+<legend></legend>
+<h4>Assigning Chef</h4>
+<div class="panel panel-default">
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Chef No.</th>
+      <th>Chef Name</th>
+      <th>Cooking Quantity</th>
+    </tr>
+  </thead>
+    <% @pack = 0 %>
+    <% @order.chef_orders.each do |chef_order| %>
+      <tr>
+        <td><%= @pack = @pack + 1 %></td>
+        <td><%= chef_order.chef.name %></td>
+        <td><%= chef_order.amount_cook %></td>
+        <td><%= link_to [@order, chef_order] do%><i class="fa fa-eye"></i><%end%></td>
+        <td><%= link_to edit_order_chef_order_path(@order, chef_order) do %><i class="fa fa-pencil"></i><%end%></td>
+        <td><%= link_to [@order, chef_order], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_cheforder' do%><i class="fa fa-remove"></i><%end%></td>
+      </tr>
+    <%end%>
+</table>
+</div>
+</div>
+<center><%= link_to 'Assign Chef', new_order_chef_order_path(@order), class: 'btn btn-info' %></center>

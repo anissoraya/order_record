@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
 
+  #resources :chef_orders
   resources :runner_orders
   resources :chefs
   root 'dashboard#index'
 
   resources :orders do
     resources :runner_orders
+  end
+  resources :chefs do
+    resources :chef_orders
+  end
+
+
+  resources :orders do
+    resources :chef_orders
   end
   resources :items
   resources :customers

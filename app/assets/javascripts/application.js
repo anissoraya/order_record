@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
+//= require cocoon
 //= fileinput
 //= require jquery_ujs
 //= require turbolinks

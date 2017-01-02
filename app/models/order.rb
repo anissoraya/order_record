@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   belongs_to :item
   has_many :chef_orders, dependent: :destroy
   has_many :runner_tasks, dependent: :destroy
+  belongs_to :day_data
 
   def day_order
     if !order_date.nil?
@@ -15,6 +16,12 @@ class Order < ApplicationRecord
   def date_format
     if !order_date.nil?
     order_date.strftime('%d/%m/%Y at %I:%M:%S %p')
+    end
+  end
+
+  def time
+    if !order_date.nil?
+    order_date.strftime('%I:%M %p')
     end
   end
 

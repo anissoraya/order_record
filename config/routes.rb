@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'table_order/index'
+
   root 'dashboard#home'
   get 'dashboard/meta'
   get 'dashboard/index'

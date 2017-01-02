@@ -60,6 +60,15 @@
         </div>
       </div>
 
+      <div class="row form-group">
+          <div class="col-sm-1">
+          <%= f.label 'Day' %>
+          </div>
+        <div class="col-sm-8">
+          <%= f.collection_select :day_data_id, DayData.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+        </div>
+      </div>
+
 
         <div class="row form-group">
             <div class="col-sm-1">

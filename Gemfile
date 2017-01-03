@@ -37,6 +37,7 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'will_paginate-bootstrap'
 gem 'paperclip'
 gem 'cocoon'
+gem 'x-editable-rails'
 #added gem
 
 

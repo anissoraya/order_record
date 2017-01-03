@@ -32,8 +32,24 @@
 
                   <% if order.customer_id == customer.id %>
                     <% if order.day_data_id == day.id %>
-                      <%= link_to order.time_order.strftime('%I:%M %p'), order_template_path(order) %> - <%= order.order_no%><br>
 
+                      <a href="#" id="time<%= order.id %>"><%= order.time_order.strftime('%I:%M %p')%></a>
+                      <script>
+                          $('#time<%= order.id %>').editable();
+                      </script>
+                      - <a href="#" id="no<%= order.id %>"><%= editable order, :order_no %></a>
+                      <script>
+                          $('#no<%= order.id %>').editable({
+                            pk: <%= order.id %>,
+                            url: '/orders',
+                            type: 'text',
+                            title: 'Enter Order Quantity',
+                            success: function(response, newValue) {
+                                OrderTemplate.set('order_no', newValue); //update backbone model
+    }
+                          });
+                      </script>
+                      <br>
                             <%end%>
                           <%end%>
 

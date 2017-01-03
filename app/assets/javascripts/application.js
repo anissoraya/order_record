@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
+//= require editable/bootstrap-editable
+//= require editable/rails
 //= require cocoon
 //= fileinput
 //= require jquery_ujs

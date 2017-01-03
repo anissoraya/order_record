@@ -44,6 +44,7 @@ class OrderTemplatesController < ApplicationController
       if @order_template.update(order_template_params)
         format.html { redirect_to @order_template, notice: 'Order template was successfully updated.' }
         format.json { render :show, status: :ok, location: @order_template }
+        format.js {}
       else
         format.html { render :edit }
         format.json { render json: @order_template.errors, status: :unprocessable_entity }

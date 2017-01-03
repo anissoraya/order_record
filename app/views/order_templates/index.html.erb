@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1>Order Templates</h1>
@@ -9,6 +10,7 @@
     <tr>
       <th>Day</th>
       <th>Customer</th>
+      <th>Order no</th>
       <th>Order no</th>
       <th>Time order</th>
       <th>Runner</th>
@@ -22,7 +24,10 @@
       <tr>
         <td><%= order_template.day_data.name %></td>
         <td><%= order_template.customer.name %></td>
-        <td><%= order_template.order_no %></td>
+        <td><a href="#" id="editable<%= order_template.id%>"><%= order_template.order_no %></a></td>
+        <script>
+            $('#editable<%= order_template.id %>').editable();
+        </script>
         <td><%= order_template.time_order.strftime('%I:%M %p') %></td>
         <td><%= order_template.runner.name %></td>
         <td><%= order_template.chef.name %></td>

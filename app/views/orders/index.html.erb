@@ -1,12 +1,65 @@
+<style>
+  div{
+    background-color: transparent !important;
+  }
+  ul li{
+    background-color: transparent !important;
+  }
+</style>
 <h1>Orders</h1>
-<%= form_tag orders_path, method: 'get', id: "orders_search", remote: true do %>
-<div class="row">
-<div class="col-sm-4"><%= text_field_tag :search, params[:search], class:'form-control', placeholder: "Search customer's name" %></div>
-<!--<div class="col-sm-2"><%= submit_tag 'Search', class: 'btn btn-success' %></div>-->
-</div>
-<%end%>
-<br>
-<div id ="orders">
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Calendar View</a></li>
+    <li><a data-toggle="tab" href="#menu1">Table View</a></li>
+</ul>
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+            <div class="container">
+              <br><br>
+              <div class="table-responsive">
+              <table class="table table-striped">
+                <tr style="text-align:center">
+                  <td>Customer/Day</td>
+                  <% @day.each do |day| %>
+                    <td> <%= day.name %></td>
+                  <%end%>
+                </tr>
+                <% @customer.each do |customer| %>
+                <tr>
+                  <td style="height:100px; border-right:1px solid #d6d6d6"><%= customer.name %></td>
+                  <% @day.each do |day| %>
+                    <td style="text-align:center">
+                          <%@order_temp.order(time_order: :asc).each do |order| %>
 
-  <%= render 'orders' %>
+                  <% if order.customer_id == customer.id %>
+                    <% if order.day_data_id == day.id %>
+                      <%= link_to order.time_order.strftime('%I:%M %p'), order_template_path(order) %> - <%= order.order_no%><br>
+
+                            <%end%>
+                          <%end%>
+
+                        <%end%>
+                    </td>
+                <%end%>
+                </tr>
+                <%end%>
+              </table>
+            </div>
+            </div>
+    </div>
+    <div id="menu1" class="tab-pane fade in ">
+            <div class="container">
+              <br><br>
+              <%= form_tag orders_path, method: 'get', id: "orders_search", remote: true do %>
+                  <div class="row">
+                  <div class="col-sm-4"><%= text_field_tag :search, params[:search], class:'form-control', placeholder: "Search customer's name" %></div>
+                  <!--<div class="col-sm-2"><%= submit_tag 'Search', class: 'btn btn-success' %></div>-->
+                  </div>
+              <%end%>
+              <br>
+                  <div id ="orders">
+                    <%= render 'orders' %>
+                  </div>
+            </div>
+    </div>
+
 </div>

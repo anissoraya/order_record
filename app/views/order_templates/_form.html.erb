@@ -1,0 +1,68 @@
+<%= form_for(order_template) do |f| %>
+  <% if order_template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order_template.errors.count, "error") %> prohibited this order_template from being saved:</h2>
+
+      <ul>
+      <% order_template.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label 'Day' %>
+      </div>
+    <div class="col-sm-8">
+      <%= f.collection_select :day_data_id, DayData.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label :customer_id %>
+      </div>
+    <div class="col-sm-8">
+      <%= f.collection_select :customer_id, Customer.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label :order_no %>
+      </div>
+    <div class="col-sm-8">
+        <%= f.number_field :order_no, class:'form-control' %>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label :time_order %>
+      </div>
+    <div class="col-sm-8">
+        <%= f.time_select :time_order, class:'form-control' %>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label :runner_id %>
+      </div>
+    <div class="col-sm-8">
+          <%= f.collection_select :runner_id, Runner.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label :chef_id %>
+      </div>
+    <div class="col-sm-8">
+          <%= f.collection_select :chef_id, Chef.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <div class="row">
+    <div class="col-sm-1"></div><div class="col-sm-8" style="text-align:right"><%= f.submit 'Save', class: 'btn btn-success' %></div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: MyString
+  customer: one
+  order_no: 1
+  time_order: 2017-01-02 12:31:26
+  runner: one
+  chef: one
+
+two:
+  day: MyString
+  customer: two
+  order_no: 1
+  time_order: 2017-01-02 12:31:26
+  runner: two
+  chef: two

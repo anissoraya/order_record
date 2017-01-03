@@ -6,4 +6,6 @@ class Customer < ApplicationRecord
   def self.search_cus(search_cus)
     where('name LIKE ? OR company LIKE ?', "%#{search_cus}%","%#{search_cus}%" )
   end
+
+  has_many :order_templates
 end

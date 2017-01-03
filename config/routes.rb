@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :order_templates
   #resources :chef_orders
   resources :runner_orders
   resources :chefs

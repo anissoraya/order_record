@@ -11,6 +11,10 @@ class OrdersController < ApplicationController
       @orders = Order.all.order('order_date DESC').paginate(:page => params[:page], :per_page => 10)
     end
 
+    @customer = Customer.all
+    @day = DayData.all
+    @order_temp = OrderTemplate.all
+
     respond_to do |format|
       format.html
       format.js

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Order Templates</h1>
+
+<%= link_to 'New Order Template', new_order_template_path, class:'btn btn-info' %>
+<br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Customer</th>
+      <th>Order no</th>
+      <th>Time order</th>
+      <th>Runner</th>
+      <th>Chef</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_templates.each do |order_template| %>
+      <tr>
+        <td><%= order_template.day_data.name %></td>
+        <td><%= order_template.customer.name %></td>
+        <td><%= order_template.order_no %></td>
+        <td><%= order_template.time_order.strftime('%I:%M %p') %></td>
+        <td><%= order_template.runner.name %></td>
+        <td><%= order_template.chef.name %></td>
+        <td><%= link_to 'Show', order_template %></td>
+        <td><%= link_to 'Edit', edit_order_template_path(order_template) %></td>
+        <td><%= link_to 'Destroy', order_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -6,6 +6,9 @@
     background-color: transparent !important;
   }
 </style>
+<script>
+$.fn.editable.defaults.ajaxOptions = {type: "PATCH"};
+</script>
 <h1>Orders</h1>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Calendar View</a></li>
@@ -35,19 +38,39 @@
 
                       <a href="#" id="time<%= order.id %>"><%= order.time_order.strftime('%I:%M %p')%></a>
                       <script>
-                          $('#time<%= order.id %>').editable();
+                          $('#time<%= order.id %>').editable({
+                            inputclass: 'inputtimeorder',
+                            pk: <%= order.id %>,
+                            name: 'time_order',
+                            model: 'order_template',
+                            url: '<%= order_template_path(order) %>',
+                            success: function(response, newValue) {
+                                if(response.status == 'error') {
+                                    return response.msg;
+                                } else {
+                                  $('this').html(newValue);
+                                }
+                            }
+                          });
                       </script>
                       - <a href="#" id="no<%= order.id %>"><%= editable order, :order_no %></a>
                       <script>
-                          $('#no<%= order.id %>').editable({
-                            pk: <%= order.id %>,
-                            url: '/orders',
-                            type: 'text',
-                            title: 'Enter Order Quantity',
-                            success: function(response, newValue) {
-                                OrderTemplate.set('order_no', newValue); //update backbone model
-    }
-                          });
+                      $('#no<%= order.id%>').editable({
+                          inputclass: 'inputorderno',
+                          pk: <%= order.id %>,
+                          name: 'order_no',
+                          model: 'order_template',
+                          url: '<%= order_template_path(order) %>',
+                          success: function(response, newValue) {
+                              if(response.status == 'error') {
+                                  return response.msg;
+                              } else {
+                                $('this').html(newValue);
+                              }
+                          }
+                        });
+
+
                       </script>
                       <br>
                             <%end%>

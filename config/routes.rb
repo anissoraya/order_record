@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :chefs
   root 'dashboard#index'
 
-  patch 'orders/index', controllers:{ order_template: 'order_template'}
+  patch 'orders/index', to: 'order_templates#update'
+  put 'orders/index', to: 'order_templates#update'
   resources :orders do
     resources :runner_orders
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103074508) do
+ActiveRecord::Schema.define(version: 20170105181356) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -58,9 +58,7 @@ ActiveRecord::Schema.define(version: 20170103074508) do
   end
 
   create_table "day_data", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "items", force: :cascade do |t|
@@ -79,8 +77,10 @@ ActiveRecord::Schema.define(version: 20170103074508) do
     t.integer  "chef_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "item_id"
     t.index ["chef_id"], name: "index_order_templates_on_chef_id"
     t.index ["customer_id"], name: "index_order_templates_on_customer_id"
+    t.index ["item_id"], name: "index_order_templates_on_item_id"
     t.index ["runner_id"], name: "index_order_templates_on_runner_id"
   end
 

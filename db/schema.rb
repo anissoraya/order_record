@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 20170105182223) do
     t.datetime "avatar_updated_at"
   end
 
+  create_table "day_data", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.float    "price"

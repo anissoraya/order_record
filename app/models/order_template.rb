@@ -3,4 +3,5 @@ class OrderTemplate < ApplicationRecord
   belongs_to :runner
   belongs_to :chef
   belongs_to :day_data
+  belongs_to :item
 end

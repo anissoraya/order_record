@@ -10,6 +10,13 @@
       </ul>
     </div>
   <% end %>
+  <div class="row form-group">
+      <div class="col-sm-1">
+      <%= f.label 'Item' %>
+      </div>
+    <div class="col-sm-8">
+      <%= f.collection_select :item_id, Item.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
+    </div>
 
   <div class="row form-group">
       <div class="col-sm-1">

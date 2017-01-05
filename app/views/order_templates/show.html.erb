@@ -1,34 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Day:</strong>
-  <%= @order_template.day_data.name %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @order_template.customer.name %>
-</p>
-
-<p>
-  <strong>Order no:</strong>
-  <%= @order_template.order_no %>
-</p>
-
-<p>
-  <strong>Time order:</strong>
-  <%= @order_template.time_order.strftime('%I:%M %p')  %>
-</p>
-
-<p>
-  <strong>Runner:</strong>
-  <%= @order_template.runner.name %>
-</p>
-
-<p>
-  <strong>Chef:</strong>
-  <%= @order_template.chef.name %>
-</p>
-
-<%= link_to 'Edit', edit_order_template_path(@order_template) %> |
-<%= link_to 'Back', order_templates_path %>
+<div class="panel panel-default">
+    <table class="table">
+  <tr>
+    <td><strong>Item:</strong></td>
+    <td><%= @order_template.day_data.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Quantity:</strong></td>
+    <td><%= @order_template.customer.name  %></td>
+  </tr>
+  <tr>
+    <td><strong>Customer:</strong></td>
+    <td><%= @order_template.order_no %></td>
+  </tr>
+  <tr>
+    <td><strong>Order Date:</strong></td>
+    <td><%= @order_template.time_order.strftime('%I:%M %p') %></td>
+  </tr>
+  <tr>
+    <td><strong>Runner In Charge:</strong></td>
+    <td><%= @order_template.runner.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Chef In Charge:</strong></td>
+    <td><%= @order_template.chef.name %></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align:right"><%= link_to edit_order_template_path(@order_template), class: 'btn btn-warning' do %><i class="fa fa-pencil"></i> Edit<%end%></td>
+  </tr>
+  </table>
+</div>
+<br>

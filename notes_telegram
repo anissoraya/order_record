@@ -4,3 +4,6 @@ How to use,
 bin/telegram-cli -e "msg <UserName> <Message>"
 
 
+### Binary only support ubuntu###
+to use other OS, please compile the source code manually and copy the telegram-cli into bin folder
+in app root. 

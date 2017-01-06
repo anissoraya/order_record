@@ -23,12 +23,15 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="<%= root_path %>">Dashboard</a></li>
-          <li><a href="<%= order_templates_path%>">Template</a></li>
+
           <li><a href="<%= orders_path%>">All Orders</a></li>
           <li><a href="<%= customers_path%>">Customers</a></li>
           <li><a href="<%= items_path%>">Items</a></li>
           <li><a href="<%= runners_path%>">Runners</a></li>
           <li><a href="<%= chefs_path%>">Chefs</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="<%= order_templates_path%>">Template</a></li>
         </ul>
       </div>
     </div>

@@ -4,7 +4,9 @@ class OrderTemplatesController < ApplicationController
   # GET /order_templates
   # GET /order_templates.json
   def index
-    @order_templates = OrderTemplate.all
+    @order_temp = OrderTemplate.all
+    @customer = Customer.all
+    @day = DayData.all
   end
 
   # GET /order_templates/1

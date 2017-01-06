@@ -71,6 +71,6 @@ class OrderTemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_template_params
-      params.require(:order_template).permit(:day_data_id, :customer_id, :order_no, :time_order, :runner_id, :chef_id)
+      params.require(:order_template).permit(:day_data_id, :customer_id, :order_no, :time_order, :runner_id, :chef_id, :item_id)
     end
 end

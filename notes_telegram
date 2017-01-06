@@ -1,0 +1,6 @@
+How to use, 
+1. just init the first connection. by manually run bin/telegram-cli in the root of apps folder. 
+2. once initiated. can easily use telegram to send msg. using template below. 
+bin/telegram-cli -e "msg <UserName> <Message>"
+
+

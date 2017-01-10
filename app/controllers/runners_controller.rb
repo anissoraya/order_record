@@ -16,6 +16,11 @@ class RunnersController < ApplicationController
   # GET /runners/1.json
   def show
     @runnertasks = RunnerTask.all.where(runner_id: @runner)
+    if params[:target] == "Today"
+      @orders = Order.where("runner_id = ? AND Date(order_date) = ? ", @runner.id, Date.today)
+      else
+      @orders = Order.where("runner_id = ? ", @runner.id)
+      end
   end
 
   # GET /runners/new

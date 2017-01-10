@@ -1,0 +1,52 @@
+<style>
+@media print{
+  .no-print{
+    display: none;
+  }
+}
+</style>
+<h1 class="no-print">Runner Order</h1>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class='demo-area'>
+        <button class="btn btn-success" data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.' >
+          <b>Copy To Clipboard...</b>
+        </button>
+        <div cols='50' id='fe_text' rows='3'>
+
+            <% @date = params[:date] %>
+            <% @dateconv = Date.parse(@date) %>
+            <% @datefin = @dateconv.strftime('%d/%m/%Y') %>
+            <h3>Order for <%= @runner.name %> (<%= @datefin %>)</h3>
+
+            <div id="print">
+
+              <% @orders.each do |order| %>
+                <%= order.customer.name %> - <%= order.quantity %><br>
+              <%end%>
+            </div>
+        </div>
+  </div>
+  </div>
+</div>
+<!--
+  <h4>
+    <label for='testarea'>Paste Text Here</label>
+  </h4>
+  <textarea cols='50' id='testarea' rows='3'></textarea>
+  <p>
+    <button id='clear-test'>Clear Test Area</button>
+  </p>
+</div>
+-->
+<script>
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#d_clip_button"))
+  });
+
+  $("#clear-test").on("click", function(){
+    $("#fe_text").val("Copy me!");
+    $("#print").css("background-color", "yellow");
+    $("#testarea").val("");
+  });
+</script>

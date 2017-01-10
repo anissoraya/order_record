@@ -28,7 +28,7 @@ $.fn.editable.defaults.ajaxOptions = {type: "PATCH"};
                     <div style="border-bottom:1px solid #d6d6d6; padding-bottom:5px">
                       <%= order.item.name %>
 
-                      - <span style="padding-right:5px"><i class="fa fa-clock-o"></i></span><a href="#" id="time<%= order.id %>"><%= order.time_order.strftime('%I:%M %p')%></a>
+                      &nbsp; <span style="padding-right:5px"><i class="fa fa-clock-o"></i></span><a href="#" id="time<%= order.id %>"><%= order.time_order.strftime('%I:%M %p')%></a>
                       <script>
                           $('#time<%= order.id %>').editable({
                             inputclass: 'inputtimeorder',

@@ -16,6 +16,7 @@
 //= require bootstrap-datetimepicker
 //= require editable/bootstrap-editable
 //= require editable/rails
+//= require zeroclipboard
 //= require cocoon
 //= fileinput
 //= require jquery_ujs

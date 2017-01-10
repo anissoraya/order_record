@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+#gem 'telegram-rb', require: 'telegram'
 #added gem
 gem 'bootstrap-sass'
 gem 'momentjs-rails', '>= 2.9.0'
@@ -38,6 +38,7 @@ gem 'will_paginate-bootstrap'
 gem 'paperclip'
 gem 'cocoon'
 gem 'x-editable-rails'
+gem 'zeroclipboard-rails'
 #added gem
 
 

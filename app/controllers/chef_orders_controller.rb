@@ -29,7 +29,6 @@ class ChefOrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     @chef_order = @order.chef_orders.build(chef_order_params)
     @chef_order.order = @order
-
     respond_to do |format|
       if @chef_order.save
         format.html { redirect_to order_path(@order), notice: 'Chef order was successfully created.' }

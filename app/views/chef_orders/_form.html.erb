@@ -1,16 +1,19 @@
 <%= form_for [@order, @chef_order] do |f| %>
 
-  <% if chef_order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(chef_order.errors.count, "error") %> prohibited this chef_order from being saved:</h2>
+<% if @chef_order.errors.any? %>
+<div class="alert alert-danger alert-dismissable" style="width:74%;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-remove"></i></a>
+  <div id="error_explanation">
+    <h5><%= pluralize(@chef_order.errors.count, "error") %> prohibited this order from being saved:</h5>
 
-      <ul>
-      <% chef_order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <ul>
+    <% @chef_order.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+  </div>
+<% end %>
 
   <div class="row form-group">
       <div class="col-sm-1">
@@ -20,27 +23,7 @@
       <%= f.collection_select :chef_id, Chef.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
     </div>
   </div>
-<!--
-  <div class="row form-group">
-      <div class="col-sm-1">
-      <%= f.label :order_id %>
-      </div>
-    <div class="col-sm-8">
-      <%= f.collection_select :order_id, Order.all, :id, :name, {include_blank: true}, {class:'form-control'} %>
-    </div>
-  </div>
--->
-<!--
-  <div class="row form-group">
-      <div class="col-sm-1">
-        <%= f.label 'Order ID' %>
-      </div>
-    <div class="col-sm-8">
-      <%= f.text_field :order_id, class:'form-control', required: true %>
-    </div>
-  </div>
--->
-  <div class="row form-group">
+v class="row form-group">
       <div class="col-sm-1">
       <%= f.label 'Quantity Assign' %>
       </div>

@@ -17,6 +17,7 @@
 //= require editable/bootstrap-editable
 //= require editable/rails
 //= require zeroclipboard
+//= require clipboard
 //= require cocoon
 //= fileinput
 //= require jquery_ujs

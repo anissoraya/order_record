@@ -1,1 +1,0 @@
-json.array! @runner_orders, partial: 'runner_orders/runner_order', as: :runner_order

@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get 'print/print_order/:runner_id/:date', to: 'print#print_order'
 
   resources :order_templates
-  #resources :chef_orders
-  resources :runner_orders
+  resources :chef_orders
   resources :chefs
   root 'dashboard#index'
 

@@ -1,8 +1,8 @@
 <h1>Chefs</h1>
 <%= form_tag chefs_path, method: 'get', id: "chefs_search", remote: true do %>
-<div class="row">
-<div class="col-sm-4"><%= text_field_tag :search_chef, params[:search_chef], class:'form-control', placeholder: "Search Chef's name" %></div>
-</div>
+  <div class="row">
+    <div class="col-sm-4"><%= text_field_tag :search_chef, params[:search_chef], class:'form-control', placeholder: "Search Chef's name" %></div>
+  </div>
 <%end%>
 <br>
 <div id="chefs">

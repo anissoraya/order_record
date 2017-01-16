@@ -24,7 +24,7 @@
               <% @orders.order(order_date: :asc).each do |row| %>
                   <% if this_time != row.order_date.strftime("%H:%M") %>
                     Time: <strong><%= row.order_date.strftime("%H:%M") %></strong><br>
-                    **************<br>
+                    ****************<br>
                     <% @orders.order(order_date: :asc).each do |col| %>
                       <% if row.order_date == col.order_date %>
                         <%= col.customer.name %> - <%= col.quantity %><br>

@@ -5,7 +5,7 @@ class PrintController < ApplicationController
         #@orders = Order.where("Date(order_date) = ? AND runner_id = ?", @date, params[:runner_id] )
         @runner = Runner.find(params[:runner_id])
         @data = Order.where(order_date: @date.midnight..@date.end_of_day, runner_id:params[:runner_id])
-        @count = Order.where(order_date: @date.midnight..@date.end_of_day, runner_id:params[:runner_id]).count
+        @count1 = Order.where(order_date: @date.midnight..@date.end_of_day, runner_id:params[:runner_id]).count
 
         @sorted = @data.sort_by &:order_date
 

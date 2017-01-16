@@ -20,20 +20,17 @@
             <h3>Order for <%= @runner.name %> (<%= @datefin %>)</h3>
 
             <div id="print">
-              <% this_time = nil %>
-              <% @orders.order(order_date: :asc).each do |row| %>
-                  <% if this_time != row.order_date.strftime("%H:%M") %>
-                    Time: <strong><%= row.order_date.strftime("%H:%M") %></strong><br>
-                    ****************<br>
-                    <% @orders.order(order_date: :asc).each do |col| %>
-                      <% if row.order_date == col.order_date %>
-                        <%= col.customer.name %> - <%= col.quantity %><br>
-                      <%end%>
-                    <%end%>
+                <% @sorted.group_by(&:order_date).each do |order_date, orders| %>
+                  <%= order_date.strftime("%H:%M") %><br>
+                  ********<br>
+                  <% orders.group_by(&:customer_id).each do |customer_id, quantities|%>
+                    <%= Customer.find_by(id: customer_id).name %> -
+                    <%= quantities.map(&:quantity).join(',')%>
+                    <br>
                   <%end%>
-                  <% this_time = row.order_date.strftime('%H:%M') %>
                   <br>
-              <%end%>
+                <%end%>
+
             </div>
         </div>
   </div>

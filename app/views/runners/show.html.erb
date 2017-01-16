@@ -51,7 +51,10 @@
   </div>
 </div>
 </div>
-
+<% @orders2.each do |order|%>
+  <%= order.order_date %> -
+  <%= order.customer.name %> <br>
+<%end%>
 <div class="col-sm-6">
 <%= form_tag print_print_order_path(runner_id: @runner.id), :method => 'get' do %>
   <p>

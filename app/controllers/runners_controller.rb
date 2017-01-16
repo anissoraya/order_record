@@ -20,7 +20,6 @@ class RunnersController < ApplicationController
       @orders = Order.where("runner_id = ? AND Date(order_date) = ? ", @runner.id, Date.today)
       else
       @orders = Order.where("runner_id = ? ", @runner.id)
-      @orders2 = Order.where("runner_id = ?", @runner.id).group(:order_date)
     end
   end
 

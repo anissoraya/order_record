@@ -33,23 +33,25 @@
         <th>Order Date</th>
         <th>Item Name</th>
         <th>Quantity Order</th>
-        <th colspan="3">Manage Order</th>
+        <th colspan="6">Manage Order</th>
       </tr>
     </thead>
-      <% @orders.each do |runner_order| %>
-        <tr>
-          <td><%= runner_order.date_format %></td>
-          <td><%= runner_order.item.name %></td>
-          <td><%= runner_order.quantity %></td>
-          <td><%= link_to runner_order do%><i class="fa fa-eye"></i><%end%></td>
-          <td><%= link_to edit_order_path(runner_order)  do%><i class="fa fa-pencil"></i><%end%></td>
-          <td><%= link_to runner_order, method: :delete, data: {confirm: 'Are you sure to delete?'},remote: true, :class => 'delete_order' do%><i class="fa fa-remove"></i><%end%></td>
-        </tr>
-      <%end%>
+          <% @orders.order(order_date: :desc).each do |col| %>
+          <tr>
+                  <td><%= col.order_date.strftime("%d/%m/%Y at %H:%M") %></td>
+                  <td><%= col.item.name %></td>
+                  <td style="text-align:center"><%= col.quantity %></td>
+                  <td><%= link_to col do%><i class="fa fa-eye"></i><%end%></td>
+                  <td><%= link_to edit_order_path(col)  do%><i class="fa fa-pencil"></i><%end%></td>
+                  <td><%= link_to col, method: :delete, data: {confirm: 'Are you sure to delete?'},remote: true, :class => 'delete_order' do%><i class="fa fa-remove"></i><%end%></td>
+
+          </tr>
+    <%end%>
   </table>
   </div>
 </div>
 </div>
+
 <div class="col-sm-6">
 <%= form_tag print_print_order_path(runner_id: @runner.id), :method => 'get' do %>
   <p>

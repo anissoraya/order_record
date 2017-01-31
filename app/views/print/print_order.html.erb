@@ -21,8 +21,7 @@
 
             <div id="print">
                 <% @sorted.group_by(&:order_date).each do |order_date, orders| %>
-                  <%= order_date.strftime("%H:%M") %><br>
-                  ********<br>
+                  =====Time:<%= order_date.strftime("%H:%M") %>=====<br>
                   <% orders.group_by(&:customer_id).each do |customer_id, quantities|%>
                     <%= Customer.find_by(id: customer_id).name %> -
                     <%= quantities.map(&:quantity).join(',')%>

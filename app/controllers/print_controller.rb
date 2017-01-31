@@ -14,4 +14,21 @@ class PrintController < ApplicationController
       @orders = Order.all
     end
   end
+
+  def print_order_chef
+    if params[:date] != nil
+      @date = Date.parse(params[:date])
+      @data = Order.where(order_date: @date.midnight..@date.end_of_day)
+      @sorted = @data.sort_by &:order_date
+      @count = @data.uniq.pluck(:customer_id).count
+    end
+  end
+
+  def print_order_all
+    if params[:date] != nil
+      @date = Date.parse(params[:date])
+      @data = Order.where(order_date: @date.midnight..@date.end_of_day)
+      @sorted = @data.sort_by &:order_date
+    end
+  end
 end

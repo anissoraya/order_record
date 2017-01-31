@@ -22,12 +22,18 @@
     <td><%= @order.runner.name %></td>
   </tr>
   <tr>
+    <td><strong>Chef In Charge:</strong></td>
+    <td><%= @order.chef.name %></td>
+  </tr>
+
+
+  <tr>
     <td colspan="2" style="text-align:right"><%= link_to edit_order_path(@order), class: 'btn btn-warning' do %><i class="fa fa-pencil"></i> Edit<%end%></td>
   </tr>
   </table>
 </div>
 <br>
-
+<!--
 <legend></legend>
 <h4>Assigning Chef</h4>
 <div class="panel panel-default">
@@ -55,3 +61,4 @@
 </div>
 </div>
 <center><%= link_to 'Assign Chef', new_order_chef_order_path(@order), class: 'btn btn-info' %></center>
+-->

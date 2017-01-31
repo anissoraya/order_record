@@ -8,3 +8,17 @@
 <div id="runners">
   <%= render 'runners'%>
 </div>
+<legend>Print Runner Order</legend>
+<div class="row">
+  <%= form_tag print_print_order_all_path, :method => 'get', class:'form-inline' do %>
+
+      <div class="col-sm-12" style="">
+            <%= date_field_tag :date, params[:date], required: true, class:'form-control'%>
+
+            <%= submit_tag "Search By Date", :name => nil, class: 'btn btn-info' %>
+
+      </div>
+
+
+  <% end %>
+</div>

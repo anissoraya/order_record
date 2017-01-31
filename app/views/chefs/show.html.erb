@@ -28,13 +28,13 @@
         <th colspan="3">View Order</th>
       </tr>
     </thead>
-    <%if @chef.chef_orders.present? %>
-      <% @chef.chef_orders.each do |chef_order| %>
+    <%if @chef.orders.present? %>
+      <% @chef.orders.each do |chef_order| %>
         <tr>
-          <td><%= chef_order.order.date_format %></td>
-          <td><%= chef_order.order.item.name %></td>
-          <td><%= chef_order.order.quantity %></td>
-          <td><%= link_to [@chef, chef_order] do%><i class="fa fa-eye"></i><%end%></td>
+          <td><%= chef_order.date_format %></td>
+          <td><%= chef_order.item.name %></td>
+          <td><%= chef_order.quantity %></td>
+          <td><%= link_to chef_order do%><i class="fa fa-eye"></i><%end%></td>
 
         </tr>
       <%end%>

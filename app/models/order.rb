@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   belongs_to :item
   has_many :runner_tasks
   has_many :chef_orders, dependent: :destroy
+  belongs_to :chef
 
   def day_order
     if !order_date.nil?

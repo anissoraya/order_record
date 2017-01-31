@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class='demo-area'>
+      <div style="text-align:right"><button id="clip-button" class="btn btn-default" data-clipboard-target='#fe_text'>
+        <b><i class="fa fa-clipboard"></i></b>
+      </button></div>
+      <div cols='50' id='fe_text' rows='3'>
+
+        <% @date = params[:date] %>
+        <% @dateconv = Date.parse(@date) %>
+        <% @datefin = @dateconv.strftime('%d/%m/%Y') %>
+        <h3>Order for Date: <%= @datefin %></h3>
+
+        <div id="print">
+            <% @sorted.group_by(&:runner_id).each do |runner, orders| %>
+              <div class="row">
+                <div class="col-sm-1">
+                  <button id="clip-button<%= runner %>" class="btn btn-default" data-clipboard-target="#fe_text<%= runner %>">
+                    <b><i class="fa fa-clipboard"></i></b>
+                  </button>
+                  <script>
+                  new Clipboard('#clip-button<%= runner %>');
+                  </script>
+                </div>
+                <div class="col-sm-4" id= "fe_text<%= runner %>">
+                  <strong><%= Runner.find_by(id: runner).name %> :</strong><br>
+                  <% orders.group_by(&:order_date).each do |order_date, customer_orders|%>
+                    <font style="text-decoration:underline">Date: <%= order_date.strftime("%d-%m-%Y") %> / Time: <%= order_date.strftime("%H:%M")%></font><br>
+                      <% customer_orders.group_by(&:customer_id).each do |customer_id, quantities| %>
+                        <%= Customer.find_by(id: customer_id).name %> -
+                        <%= quantities.map(&:quantity).join('+')%>
+                    <br>
+                  <%end%>
+                  <br>
+                  <%end%>
+                </div>
+
+              </div>
+            <%end%>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script>
+new Clipboard('#clip-button');
+</script>

@@ -1,0 +1,62 @@
+<style>
+@media print{
+  .no-print{
+    display: none;
+  }
+}
+</style>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class='demo-area'>
+      <div style="text-align:right">
+        <button id="clip-button" class="btn btn-default" data-clipboard-target='#fe_text'>
+          <b><i class="fa fa-clipboard"></i></b>
+        </button>
+      </div>
+        <div cols='50' id='fe_text' rows='3'>
+
+            <% @date = params[:date] %>
+            <% @dateconv = Date.parse(@date) %>
+            <% @datefin = @dateconv.strftime('%d/%m/%Y') %>
+            <h3>Chef Order for date <%= @datefin %></h3>
+
+            <div id="print">
+                <% alltotalorder = 0 %>
+                <% @sorted.group_by(&:chef_id).each do |chef, orders| %>
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button id="clip-button<%= chef %>" class="btn btn-default" data-clipboard-target="#fe_text<%= chef %>">
+                      <b><i class="fa fa-clipboard"></i></b>
+                    </button>
+                    <script>
+                    new Clipboard('#clip-button<%= chef %>');
+                    </script>
+                  </div>
+                  <div class="col-sm-6" id= "fe_text<%= chef %>">
+                  Chef: <strong><%= Chef.find_by(id: chef).name %></strong><br>
+
+                  <% totalAll = 0 %>
+                  <% orders.group_by(&:quantity).each do |quantity, counts|%>
+                    <%= quantity %>
+                    <% totalAll = totalAll + quantity %>
+                      <% total = 0 %>
+                      x <%= counts.count %>
+                    <br>
+                  <%end%>
+                  Total All : <%= totalAll %> <br>
+                   <% alltotalorder = alltotalorder + totalAll %>
+                  <br>
+                  </div>
+                  </div>
+                <%end%>
+                  Total Order For <%= @datefin %> : <%= alltotalorder%>
+            </div>
+        </div>
+  </div>
+  </div>
+</div>
+
+<script>
+new Clipboard('#clip-button');
+
+</script>
